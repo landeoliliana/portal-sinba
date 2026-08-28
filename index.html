@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinba - Portal Interno de Logística</title>
+  <meta name="description" content="Portal interno de logística de Sinba. Tu centro de control con herramientas de operación diaria y gestión logística.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de Navegación Superior -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-container">
+      <!-- Logo Sinba -->
+      <a href="#" class="navbar-brand" id="brand-logo">
+        <div class="logo-wrapper">
+          <img src="assets/sinba_logo.png" alt="Sinba" class="sinba-logo-img">
+          <div class="brand-divider"></div>
+          <span class="brand-subtitle">LOGÍSTICA SINBA</span>
+        </div>
+      </a>
+
+      <!-- Menú y Acciones -->
+      <div class="navbar-actions">
+        <!-- Selector de Página -->
+        <div class="dropdown-nav" id="page-dropdown-container">
+          <button class="dropdown-nav-btn" id="dropdown-nav-btn" aria-haspopup="true" aria-expanded="false">
+            <span>Página principal</span>
+            <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <div class="dropdown-nav-menu" id="dropdown-nav-menu">
+            <a href="index.html" class="dropdown-item active">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+              Página Principal
+            </a>
+            <a href="operacion.html" class="dropdown-item">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/><path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7h-3v7h.05a2.5 2.5 0 014.9 0H17a1 1 0 001-1V9.414a1 1 0 00-.293-.707l-3-3A1 1 0 0014 7z"/></svg>
+              Herramientas de Operación
+            </a>
+            <a href="gestion.html" class="dropdown-item">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+              Herramientas de Gestión
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item" id="btn-status-system">
+              <span class="status-dot-green"></span>
+              Sistemas Operativos 100%
+            </a>
+          </div>
+        </div>
+
+        <!-- Botón de Búsqueda -->
+        <button class="nav-icon-btn" id="btn-search-toggle" title="Buscar en el portal" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Perfil / Notificaciones -->
+        <div class="user-badge" title="Operador de Turno">
+          <span class="avatar">LS</span>
+          <span class="user-name">Central Logística</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner Principal (Hero Section) -->
+  <section class="hero-section" id="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span> Operación en vivo · Turno Día
+      </div>
+      <h1 class="hero-title">PORTAL INTERNO DE LOGÍSTICA</h1>
+      <p class="hero-subtitle">Tu centro de control: todo lo que necesitas para mover la operación hoy.</p>
+      
+      <!-- Mini barra de estado de flota -->
+      <div class="hero-stats-row">
+        <div class="hero-stat-pill">
+          <span class="stat-num" id="active-trucks-count">14</span>
+          <span class="stat-lbl">Unidades en Ruta</span>
+        </div>
+        <div class="hero-stat-pill">
+          <span class="stat-num" id="completed-routes-pct">92%</span>
+          <span class="stat-lbl">Cumplimiento Hoy</span>
+        </div>
+        <div class="hero-stat-pill">
+          <span class="stat-num" id="collected-tons">18.4 Tn</span>
+          <span class="stat-lbl">Recuperadas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Principal de Módulos (Cards de Operación y Gestión) -->
+  <main class="main-container" id="modulos-section">
+    <div class="cards-grid">
+
+      <!-- TARJETA 1: OPERACIÓN -->
+      <article class="portal-card" id="card-operacion">
+        <!-- Tag Superior Naranja -->
+        <div class="card-tag-wrapper">
+          <span class="category-tag">OPERACIÓN</span>
+        </div>
+
+        <!-- Imagen de la tarjeta -->
+        <a href="operacion.html" class="card-media-wrapper" title="Ir a Herramientas de Operación">
+          <img src="assets/operacion_card.jpg" alt="Operación de rutas y recolección logística Sinba" class="card-image">
+          <div class="card-media-overlay">
+            <span class="overlay-hint">Rutas · Checklist · Incidencias</span>
+          </div>
+        </a>
+
+        <!-- Cuerpo del contenido -->
+        <div class="card-body">
+          <p class="card-description">
+            Accede a las herramientas para la ejecución diaria de rutas, comunicación con clientes, checklists e incidencias.
+          </p>
+        </div>
+
+        <!-- Botón de Acción Morado y Enlace Directo -->
+        <div class="card-footer">
+          <a href="operacion.html" class="btn-primary-purple" id="btn-open-operacion">
+            <span>Ver Herramientas de Operación</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec" target="_blank" rel="noopener noreferrer" class="card-direct-link" title="Abrir AppScript directamente">
+            <span>Abrir directo en Google Apps Script ↗</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- TARJETA 2: GESTIÓN -->
+      <article class="portal-card" id="card-gestion">
+        <!-- Tag Superior Naranja -->
+        <div class="card-tag-wrapper">
+          <span class="category-tag">GESTIÓN</span>
+        </div>
+
+        <!-- Imagen de la tarjeta -->
+        <a href="gestion.html" class="card-media-wrapper" title="Ir a Herramientas de Gestión">
+          <img src="assets/gestion_card.jpg" alt="Gestión de reportes, calculadoras e indicadores Sinba" class="card-image">
+          <div class="card-media-overlay">
+            <span class="overlay-hint">KPIs · Calculadoras · Manifiestos</span>
+          </div>
+        </a>
+
+        <!-- Cuerpo del contenido -->
+        <div class="card-body">
+          <p class="card-description">
+            Consulta calculadoras, reportes, indicadores, documentos y herramientas de soporte para la gestión logística.
+          </p>
+        </div>
+
+        <!-- Botón de Acción Morado y Enlace Directo -->
+        <div class="card-footer">
+          <a href="gestion.html" class="btn-primary-purple" id="btn-open-gestion">
+            <span>Ver Herramientas de Gestión</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycby3utZs5K2aXWGwhkrDvmNuioOsjQ_58UtWN0soseyGi7W-Dt350H0p3k4Ft-BuJmXV/exec" target="_blank" rel="noopener noreferrer" class="card-direct-link" title="Abrir AppScript directamente">
+            <span>Abrir directo en Google Apps Script ↗</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- MODAL: HERRAMIENTAS DE OPERACIÓN -->
+  <div class="modal-backdrop" id="modal-operacion" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge-tag tag-orange">OPERACIÓN</span>
+          <h2 class="modal-title">Herramientas de Operación</h2>
+        </div>
+        <button class="modal-close-btn" onclick="closeModals()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <!-- Pestañas de Herramientas -->
+      <div class="modal-tabs">
+        <button class="tab-btn active" onclick="switchOpTab('tab-rutas')">🗺️ Rutas del Día</button>
+        <button class="tab-btn" onclick="switchOpTab('tab-checklist')">📋 Checklist Pre-Ruta</button>
+        <button class="tab-btn" onclick="switchOpTab('tab-incidencias')">⚠️ Registrar Incidencia</button>
+        <button class="tab-btn" onclick="switchOpTab('tab-contacto')">📱 Contacto Clientes</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Pestaña 1: Rutas -->
+        <div class="tab-pane active" id="tab-rutas">
+          <div class="panel-header-desc">
+            <h3>Monitoreo y Despacho de Rutas Activas</h3>
+            <p>Supervisa el avance de los camiones de recolección en tiempo real.</p>
+          </div>
+          <div class="routes-list">
+            <div class="route-item">
+              <div class="route-info">
+                <span class="route-code">Ruta 01 · Miraflores & San Isidro</span>
+                <span class="route-driver">Unidad 14 (Isuzu BDX-781) · Chofer: Carlos Morales</span>
+              </div>
+              <div class="route-status in-progress">En Ruta (78%)</div>
+            </div>
+            <div class="route-item">
+              <div class="route-info">
+                <span class="route-code">Ruta 02 · Surco & Barranco</span>
+                <span class="route-driver">Unidad 09 (Hino ALX-782) · Chofer: Roberto Ruiz</span>
+              </div>
+              <div class="route-status in-progress">En Ruta (65%)</div>
+            </div>
+            <div class="route-item">
+              <div class="route-info">
+                <span class="route-code">Ruta 03 · San Borja & La Molina</span>
+                <span class="route-driver">Unidad 12 (Fuso C4X-102) · Chofer: Jorge Prado</span>
+              </div>
+              <div class="route-status completed">Completada (100%)</div>
+            </div>
+            <div class="route-item">
+              <div class="route-info">
+                <span class="route-code">Ruta 04 · Callao & San Miguel</span>
+                <span class="route-driver">Unidad 07 (Isuzu F3K-990) · Chofer: Luis Méndez</span>
+              </div>
+              <div class="route-status scheduled">Despacho 14:30</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 2: Checklist -->
+        <div class="tab-pane" id="tab-checklist">
+          <div class="panel-header-desc">
+            <h3>Checklist Pre-Operacional del Conductor</h3>
+            <p>Verificación obligatoria antes de iniciar la ruta diaria.</p>
+          </div>
+          <form class="checklist-form" id="checklist-form" onsubmit="handleChecklistSubmit(event)">
+            <label class="check-item">
+              <input type="checkbox" checked>
+              <span class="check-text">Revisión de niveles de aceite, refrigerante y frenos</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" checked>
+              <span class="check-text">Presión y estado de neumáticos de la unidad</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" checked>
+              <span class="check-text">Equipos de Protección Personal (EPP) completos: chaleco, guantes, casco</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-text">Kit anti-derrame y extintor con carga vigente</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-text">Smartphone con app GPS y lector QR de manifiestos activo</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span class="check-text">Balanza electrónica calibrada y tarada a cero</span>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary-purple">Validar y Firmar Checklist</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Pestaña 3: Registrar Incidencia -->
+        <div class="tab-pane" id="tab-incidencias">
+          <div class="panel-header-desc">
+            <h3>Reporte Inmediato de Incidencias en Ruta</h3>
+            <p>Notifica anomalías para asistencia inmediata del equipo central.</p>
+          </div>
+          <form class="incident-form" id="incident-form" onsubmit="handleIncidentSubmit(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Unidad de Transporte</label>
+                <select required>
+                  <option value="">Selecciona unidad...</option>
+                  <option value="14">Unidad 14 - BDX-781</option>
+                  <option value="09">Unidad 09 - ALX-782</option>
+                  <option value="12">Unidad 12 - C4X-102</option>
+                  <option value="07">Unidad 07 - F3K-990</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Tipo de Incidencia</label>
+                <select required>
+                  <option value="">Selecciona tipo...</option>
+                  <option value="acceso">Cliente Ausente / Acceso Restringido</option>
+                  <option value="segregacion">Material Mal Segregado / Contaminado</option>
+                  <option value="mecanica">Falla Mecánica o Neumático</option>
+                  <option value="trafico">Tráfico Extremo / Desvío Policial</option>
+                  <option value="sobrecarga">Volumen Excede Capacidad Programada</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Punto / Cliente</label>
+              <input type="text" placeholder="Ej: Restaurante Astrid & Gastón - San Isidro" required>
+            </div>
+            <div class="form-group">
+              <label>Detalles de la Incidencia</label>
+              <textarea rows="3" placeholder="Describe brevemente lo ocurrido para que la central tome acción..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary-purple">Enviar Reporte de Incidencia</button>
+          </form>
+        </div>
+
+        <!-- Pestaña 4: Contacto Clientes -->
+        <div class="tab-pane" id="tab-contacto">
+          <div class="panel-header-desc">
+            <h3>Centro de Comunicación Rápida</h3>
+            <p>Envío de avisos automáticos de llegada a clientes programados.</p>
+          </div>
+          <div class="client-cards">
+            <div class="client-card">
+              <div class="client-header">
+                <strong>Hotel Hilton Miraflores</strong>
+                <span class="badge-blue">En 15 min</span>
+              </div>
+              <p>Contacto: Recepción de Cargas · Cel: 987 654 321</p>
+              <button class="btn-sm btn-outline" onclick="notifyClient('Hotel Hilton')">Enviar Aviso por WhatsApp</button>
+            </div>
+            <div class="client-card">
+              <div class="client-header">
+                <strong>Supermercados Wong Óvalo Gutiérrez</strong>
+                <span class="badge-blue">En 35 min</span>
+              </div>
+              <p>Contacto: Área de Sostenibilidad · Cel: 955 123 456</p>
+              <button class="btn-sm btn-outline" onclick="notifyClient('Supermercados Wong')">Enviar Aviso por WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: HERRAMIENTAS DE GESTIÓN -->
+  <div class="modal-backdrop" id="modal-gestion" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge-tag tag-orange">GESTIÓN</span>
+          <h2 class="modal-title">Herramientas de Gestión</h2>
+        </div>
+        <button class="modal-close-btn" onclick="closeModals()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <!-- Pestañas de Gestión -->
+      <div class="modal-tabs">
+        <button class="tab-btn active" onclick="switchGesTab('tab-calculadora')">🌱 Calculadora de Impacto</button>
+        <button class="tab-btn" onclick="switchGesTab('tab-kpis')">📊 Indicadores & Reportes</button>
+        <button class="tab-btn" onclick="switchGesTab('tab-documentos')">📑 Repositorio de Documentos</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Pestaña 1: Calculadora de Impacto -->
+        <div class="tab-pane active" id="tab-calculadora">
+          <div class="panel-header-desc">
+            <h3>Calculadora de Huella de Carbono y Recursos</h3>
+            <p>Calcula el impacto ambiental positivo del material recuperado por la logística Sinba.</p>
+          </div>
+          <div class="calc-box">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Orgánicos Recuperados (Kg)</label>
+                <input type="number" id="calc-organicos" value="1500" min="0" oninput="recalculateImpact()">
+              </div>
+              <div class="form-group">
+                <label>Inorgánicos / Plásticos / Cartón (Kg)</label>
+                <input type="number" id="calc-inorganicos" value="800" min="0" oninput="recalculateImpact()">
+              </div>
+            </div>
+
+            <!-- Resultados en tarjetas de impacto -->
+            <div class="impact-grid">
+              <div class="impact-card">
+                <span class="impact-icon">💨</span>
+                <span class="impact-val" id="res-co2">2,850 kg</span>
+                <span class="impact-desc">CO2e Evitado a la Atmósfera</span>
+              </div>
+              <div class="impact-card">
+                <span class="impact-icon">🌳</span>
+                <span class="impact-val" id="res-arboles">38</span>
+                <span class="impact-desc">Árboles Equivalentes Salvados</span>
+              </div>
+              <div class="impact-card">
+                <span class="impact-icon">💧</span>
+                <span class="impact-val" id="res-agua">19,200 L</span>
+                <span class="impact-desc">Agua Preservada en Procesos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 2: Indicadores y KPIs -->
+        <div class="tab-pane" id="tab-kpis">
+          <div class="panel-header-desc">
+            <h3>Indicadores Clave de Desempeño Logístico (Semanal)</h3>
+            <p>Métricas acumuladas del mes en curso.</p>
+          </div>
+          <div class="kpis-container">
+            <div class="kpi-row">
+              <div class="kpi-label">Puntualidad en Puntos de Recojo</div>
+              <div class="kpi-bar-wrapper">
+                <div class="kpi-bar" style="width: 96%;"></div>
+              </div>
+              <span class="kpi-pct">96.4%</span>
+            </div>
+            <div class="kpi-row">
+              <div class="kpi-label">Tasa de Eficiencia de Carga Útil</div>
+              <div class="kpi-bar-wrapper">
+                <div class="kpi-bar" style="width: 88%;"></div>
+              </div>
+              <span class="kpi-pct">88.2%</span>
+            </div>
+            <div class="kpi-row">
+              <div class="kpi-label">Calidad de Segregación en Origen</div>
+              <div class="kpi-bar-wrapper">
+                <div class="kpi-bar" style="width: 93%;"></div>
+              </div>
+              <span class="kpi-pct">93.0%</span>
+            </div>
+            <div class="kpi-row">
+              <div class="kpi-label">Resolución de Incidencias < 30m</div>
+              <div class="kpi-bar-wrapper">
+                <div class="kpi-bar" style="width: 99%;"></div>
+              </div>
+              <span class="kpi-pct">99.1%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 3: Documentos -->
+        <div class="tab-pane" id="tab-documentos">
+          <div class="panel-header-desc">
+            <h3>Manuales, Manifiestos y Formatos Oficiales</h3>
+            <p>Descarga o consulta las guías normativas actualizadas de Sinba.</p>
+          </div>
+          <div class="docs-list">
+            <div class="doc-item">
+              <div class="doc-icon">📄</div>
+              <div class="doc-info">
+                <strong>Manifiesto de Residuos Sólidos No Peligrosos (MINAM)</strong>
+                <span>Formato oficial editable · PDF 1.4 MB</span>
+              </div>
+              <button class="btn-sm btn-outline" onclick="downloadMockDoc('Manifiesto_Residuos_MINAM.pdf')">Descargar</button>
+            </div>
+            <div class="doc-item">
+              <div class="doc-icon">📘</div>
+              <div class="doc-info">
+                <strong>Manual de Buenas Prácticas de Recolección & EPPs</strong>
+                <span>Guía técnica de seguridad en campo · PDF 3.2 MB</span>
+              </div>
+              <button class="btn-sm btn-outline" onclick="downloadMockDoc('Manual_EPP_Sinba.pdf')">Descargar</button>
+            </div>
+            <div class="doc-item">
+              <div class="doc-icon">📑</div>
+              <div class="doc-info">
+                <strong>Protocolo de Atención ante Materiales Contaminados</strong>
+                <span>Procedimiento de no conformidad · PDF 850 KB</span>
+              </div>
+              <button class="btn-sm btn-outline" onclick="downloadMockDoc('Protocolo_NoConformidad.pdf')">Descargar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE BÚSQUEDA RÁPIDA -->
+  <div class="modal-backdrop search-modal-backdrop" id="modal-search" aria-hidden="true">
+    <div class="modal-dialog search-dialog">
+      <div class="search-input-wrapper">
+        <svg class="search-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" placeholder="Buscar herramientas, checklists, rutas, manifiestos..." oninput="handleSearch(this.value)">
+        <button class="search-clear-btn" onclick="closeModals()">&times;</button>
+      </div>
+      <div class="search-results" id="search-results-list">
+        <div class="search-category-title">Sugerencias rápidas</div>
+        <div class="search-result-item" onclick="openOperationModal(); switchOpTab('tab-rutas');">
+          <span class="sr-icon">🗺️</span>
+          <div class="sr-text">
+            <strong>Monitoreo de Rutas de hoy</strong>
+            <span>Herramientas de Operación</span>
+          </div>
+        </div>
+        <div class="search-result-item" onclick="openGestionModal(); switchGesTab('tab-calculadora');">
+          <span class="sr-icon">🌱</span>
+          <div class="sr-text">
+            <strong>Calculadora de Huella y Residuos</strong>
+            <span>Herramientas de Gestión</span>
+          </div>
+        </div>
+        <div class="search-result-item" onclick="openOperationModal(); switchOpTab('tab-incidencias');">
+          <span class="sr-icon">⚠️</span>
+          <div class="sr-text">
+            <strong>Registrar una nueva incidencia</strong>
+            <span>Herramientas de Operación</span>
+          </div>
+        </div>
+        <div class="search-result-item" onclick="openGestionModal(); switchGesTab('tab-documentos');">
+          <span class="sr-icon">📑</span>
+          <div class="sr-text">
+            <strong>Manifiestos y formatos MINAM</strong>
+            <span>Herramientas de Gestión</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificación Toast Flotante -->
+  <div class="toast-notification" id="toast-notification">
+    <div class="toast-icon">✓</div>
+    <div class="toast-msg" id="toast-msg">Acción completada con éxito.</div>
+  </div>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/sinba_logo.png" alt="Sinba" class="footer-logo-img">
+        <span class="footer-motto">#HacemosUnMundoSinBasura</span>
+      </div>
+      <div class="footer-info">
+        <p>© 2026 Sinba Perú · Portal Interno de Operaciones y Logística Sostenible</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

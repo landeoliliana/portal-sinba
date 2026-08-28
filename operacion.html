@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramientas de Operación - Sinba Logística</title>
+  <meta name="description"
+    content="Módulo de herramientas de operación de Sinba Logística conectado a Google Apps Script.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="app-viewer-body">
+
+  <!-- Barra de Navegación Superior -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-container">
+      <!-- Logo Sinba -->
+      <a href="index.html" class="navbar-brand" id="brand-logo">
+        <div class="logo-wrapper">
+          <img src="assets/sinba_logo.png" alt="Sinba" class="sinba-logo-img">
+          <div class="brand-divider"></div>
+          <span class="brand-subtitle">LOGÍSTICA SINBA</span>
+        </div>
+      </a>
+
+      <!-- Menú y Acciones de la Herramienta -->
+      <div class="navbar-actions">
+        <div class="tool-status-badge">
+          <span class="pulse-dot"></span>
+          <span>Google Apps Script Conectado</span>
+        </div>
+
+        <!-- Botón Recargar Frame -->
+        <button class="nav-btn-action" onclick="reloadAppScriptFrame('op-frame')" title="Recargar herramienta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 4v6h-6M1 20v-6h6" />
+            <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+          </svg>
+          <span>Recargar</span>
+        </button>
+
+        <!-- Botón Abrir Directo en Pestaña Nueva -->
+        <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
+          target="_blank" rel="noopener noreferrer" class="btn-open-external"
+          title="Abrir en pestaña completa de Google">
+          <span>Abrir en Pestaña Completa</span>
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path
+              d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+          </svg>
+        </a>
+
+        <!-- Botón Volver al Portal -->
+        <a href="index.html" class="btn-back-portal">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd" />
+          </svg>
+          <span>Portal Principal</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-Barra de Contexto de la Aplicación -->
+  <div class="app-control-bar">
+    <div class="app-info-left">
+      <div class="category-tag-sub">OPERACIÓN</div>
+      <h1 class="app-bar-title">Herramientas de Operación</h1>
+      <span class="app-bar-desc">Ejecución de rutas, checklists de recolección, comunicación con clientes e
+        incidencias.</span>
+    </div>
+    <div class="app-info-right">
+      <a href="gestion.html" class="link-switch-app">
+        <span>Ir a Herramientas de Gestión</span>
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Contenedor del AppScript / IFrame Integrado -->
+  <main class="appscript-viewer-container">
+    <!-- Overlay de Carga -->
+    <div class="iframe-loading-indicator" id="iframe-loader">
+      <div class="loader-spinner"></div>
+      <p>Cargando Herramienta de Operación de Sinba...</p>
+      <span class="loader-sub">Conectando con Google Apps Script</span>
+    </div>
+
+    <!-- IFrame de la App -->
+    <iframe id="op-frame" class="appscript-iframe"
+      src="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
+      allow="geolocation; microphone; camera; clipboard-read; clipboard-write;"
+      sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
+      onload="hideIframeLoader('iframe-loader')">
+    </iframe>
+
+    <!-- Aviso de Soporte / Acceso Workspace -->
+    <div class="iframe-footer-notice">
+      <span>¿No carga la aplicación por políticas de tu cuenta Google?</span>
+      <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
+        target="_blank" rel="noopener noreferrer">
+        Haz clic aquí para abrirla directamente en una pestaña de Google Workspace ↗
+      </a>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
