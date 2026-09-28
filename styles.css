@@ -1494,6 +1494,37 @@ body {
   text-decoration: underline;
 }
 
+/* Barra de Herramientas Adicionales (enlaces rápidos a otras apps del módulo) */
+.quick-tools-bar {
+  background: #FAF9FD;
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.65rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.quick-tools-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-right: 0.15rem;
+}
+
+.quick-tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.quick-tool-link svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
 /* Responsive viewer */
 @media (max-width: 840px) {
   .app-bar-desc {
@@ -1502,6 +1533,10 @@ body {
 
   .app-control-bar {
     padding: 0.65rem 1rem;
+  }
+
+  .quick-tools-bar {
+    padding: 0.6rem 1rem;
   }
 }
 
