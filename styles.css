@@ -1494,35 +1494,52 @@ body {
   text-decoration: underline;
 }
 
-/* Barra de Herramientas Adicionales (enlaces rápidos a otras apps del módulo) */
-.quick-tools-bar {
-  background: #FAF9FD;
-  border-bottom: 1px solid var(--border-light);
-  padding: 0.65rem 2rem;
+/* Cuadrícula de Herramientas (operacion.html) */
+.tools-grid-3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tool-card .card-media-wrapper {
+  height: 200px;
+}
+
+.card-icon-media {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.65rem;
+  justify-content: center;
 }
 
-.quick-tools-label {
-  font-size: 0.82rem;
-  font-weight: 700;
+.card-icon-media.icon-clientes {
+  background: var(--sinba-purple-gradient);
+}
+
+.card-icon-media.icon-checklist {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #A33212 100%);
+}
+
+.card-icon-svg {
+  width: 72px;
+  height: 72px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tools-external-note {
+  text-align: center;
+  font-size: 0.85rem;
   color: var(--text-muted);
-  margin-right: 0.15rem;
+  margin-top: 2rem;
 }
 
-.quick-tool-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  text-decoration: none;
+@media (max-width: 980px) {
+  .tools-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.quick-tool-link svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
+@media (max-width: 640px) {
+  .tools-grid-3col {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive viewer */
@@ -1533,10 +1550,6 @@ body {
 
   .app-control-bar {
     padding: 0.65rem 1rem;
-  }
-
-  .quick-tools-bar {
-    padding: 0.6rem 1rem;
   }
 }
 

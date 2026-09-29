@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Herramientas de Operación - Sinba Logística</title>
   <meta name="description"
-    content="Módulo de herramientas de operación de Sinba Logística conectado a Google Apps Script.">
+    content="Módulo de herramientas de operación de Sinba Logística: simulador de rutas, directorio de clientes y checklist.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="app-viewer-body">
+<body>
 
   <!-- Barra de Navegación Superior -->
   <header class="navbar" id="navbar">
@@ -29,33 +29,12 @@
         </div>
       </a>
 
-      <!-- Menú y Acciones de la Herramienta -->
+      <!-- Menú y Acciones -->
       <div class="navbar-actions">
         <div class="tool-status-badge">
           <span class="pulse-dot"></span>
-          <span>Google Apps Script Conectado</span>
+          <span>3 Herramientas Disponibles</span>
         </div>
-
-        <!-- Botón Recargar Frame -->
-        <button class="nav-btn-action" onclick="reloadAppScriptFrame('op-frame')" title="Recargar herramienta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M23 4v6h-6M1 20v-6h6" />
-            <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
-          </svg>
-          <span>Recargar</span>
-        </button>
-
-        <!-- Botón Abrir Directo en Pestaña Nueva -->
-        <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
-          target="_blank" rel="noopener noreferrer" class="btn-open-external"
-          title="Abrir en pestaña completa de Google">
-          <span>Abrir en Pestaña Completa</span>
-          <svg viewBox="0 0 20 20" fill="currentColor">
-            <path
-              d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-          </svg>
-        </a>
 
         <!-- Botón Volver al Portal -->
         <a href="index.html" class="btn-back-portal">
@@ -70,69 +49,157 @@
     </div>
   </header>
 
-  <!-- Sub-Barra de Contexto de la Aplicación -->
-  <div class="app-control-bar">
-    <div class="app-info-left">
-      <div class="category-tag-sub">OPERACIÓN</div>
-      <h1 class="app-bar-title">Herramientas de Operación</h1>
-      <span class="app-bar-desc">Ejecución de rutas, checklists de recolección, comunicación con clientes e
-        incidencias.</span>
+  <!-- Hero del Módulo -->
+  <section class="module-hero-section op-hero-bg">
+    <div class="hero-bg-overlay"></div>
+    <div class="module-hero-content">
+      <div class="breadcrumb-trail">
+        <a href="index.html">Portal Principal</a>
+        <span>/</span>
+        <span>Herramientas de Operación</span>
+      </div>
+      <span class="category-tag-sub">OPERACIÓN</span>
+      <h1 class="module-title">Herramientas de Operación</h1>
+      <p class="module-desc">Ejecución de rutas, checklists de recolección, comunicación con clientes e incidencias.
+        Elige la herramienta que necesitas para tu turno.</p>
     </div>
-    <div class="app-info-right">
-      <a href="gestion.html" class="link-switch-app">
-        <span>Ir a Herramientas de Gestión</span>
-        <svg viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-            clip-rule="evenodd" />
-        </svg>
-      </a>
+  </section>
+
+  <!-- Cuadrícula de Herramientas -->
+  <main class="main-container">
+    <div class="cards-grid tools-grid-3col">
+
+      <!-- TARJETA 1: SIMULADOR DE RUTAS -->
+      <article class="portal-card tool-card">
+        <div class="card-tag-wrapper">
+          <span class="category-tag">OPERACIÓN</span>
+        </div>
+
+        <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
+          target="_blank" rel="noopener noreferrer" class="card-media-wrapper" title="Abrir Simulador de Rutas">
+          <img src="assets/operacion_card.jpg" alt="Simulador de rutas de recolección Sinba" class="card-image">
+          <div class="card-media-overlay">
+            <span class="overlay-hint">Monitoreo · Despacho · Rutas en vivo</span>
+          </div>
+        </a>
+
+        <div class="card-body">
+          <p class="card-description">
+            Visualiza y despacha las rutas de recolección del día en tiempo real, con el estado de cada unidad en
+            ruta.
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
+            target="_blank" rel="noopener noreferrer" class="btn-primary-purple">
+            <span>Abrir Simulador de Rutas</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- TARJETA 2: DIRECTORIO DE CLIENTES -->
+      <article class="portal-card tool-card">
+        <div class="card-tag-wrapper">
+          <span class="category-tag">OPERACIÓN</span>
+        </div>
+
+        <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbx68kqQXS2MmRAy04SDhw9Lnktn0qR7kl11kxjSqwhqG59ig5MQkL6e4avHacqMlpoQeQ/exec"
+          target="_blank" rel="noopener noreferrer" class="card-media-wrapper card-icon-media icon-clientes"
+          title="Abrir Directorio de Clientes">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="card-icon-svg">
+            <path
+              d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+          </svg>
+          <div class="card-media-overlay">
+            <span class="overlay-hint">Contactos · Direcciones · Puntos de recojo</span>
+          </div>
+        </a>
+
+        <div class="card-body">
+          <p class="card-description">
+            Consulta los datos de contacto, direcciones y puntos de recojo de todos los clientes registrados en la
+            operación.
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbx68kqQXS2MmRAy04SDhw9Lnktn0qR7kl11kxjSqwhqG59ig5MQkL6e4avHacqMlpoQeQ/exec"
+            target="_blank" rel="noopener noreferrer" class="btn-primary-purple">
+            <span>Abrir Directorio de Clientes</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- TARJETA 3: CHECKLIST -->
+      <article class="portal-card tool-card">
+        <div class="card-tag-wrapper">
+          <span class="category-tag">OPERACIÓN</span>
+        </div>
+
+        <a href="https://script.google.com/macros/s/AKfycbxdH1ChZkUwUBqIdx6Nd5o1_QtbMIdZSBdmco9940yDwUgBvE0eCZaKGC1lmWulWS1K/exec"
+          target="_blank" rel="noopener noreferrer" class="card-media-wrapper card-icon-media icon-checklist"
+          title="Abrir Checklist">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="card-icon-svg">
+            <path fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd" />
+          </svg>
+          <div class="card-media-overlay">
+            <span class="overlay-hint">Checklist digital pre-operacional</span>
+          </div>
+        </a>
+
+        <div class="card-body">
+          <p class="card-description">
+            Completa el checklist pre-operacional digital antes de iniciar cada ruta: unidad, EPP y equipos de
+            recolección.
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <a href="https://script.google.com/macros/s/AKfycbxdH1ChZkUwUBqIdx6Nd5o1_QtbMIdZSBdmco9940yDwUgBvE0eCZaKGC1lmWulWS1K/exec"
+            target="_blank" rel="noopener noreferrer" class="btn-primary-purple">
+            <span>Abrir Checklist</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </a>
+        </div>
+      </article>
+
     </div>
-  </div>
 
-  <!-- Barra de Herramientas Adicionales de Operación -->
-  <div class="quick-tools-bar">
-    <span class="quick-tools-label">Otras herramientas de Operación:</span>
-    <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbx68kqQXS2MmRAy04SDhw9Lnktn0qR7kl11kxjSqwhqG59ig5MQkL6e4avHacqMlpoQeQ/exec"
-      target="_blank" rel="noopener noreferrer" class="btn-sm btn-outline quick-tool-link"
-      title="Abrir Directorio de Clientes en Google Apps Script">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
-      Directorio de Clientes ↗
-    </a>
-    <a href="https://script.google.com/macros/s/AKfycbxdH1ChZkUwUBqIdx6Nd5o1_QtbMIdZSBdmco9940yDwUgBvE0eCZaKGC1lmWulWS1K/exec"
-      target="_blank" rel="noopener noreferrer" class="btn-sm btn-outline quick-tool-link"
-      title="Abrir Checklist en Google Apps Script">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-      Checklist ↗
-    </a>
-  </div>
-
-  <!-- Contenedor del AppScript / IFrame Integrado -->
-  <main class="appscript-viewer-container">
-    <!-- Overlay de Carga -->
-    <div class="iframe-loading-indicator" id="iframe-loader">
-      <div class="loader-spinner"></div>
-      <p>Cargando Herramienta de Operación de Sinba...</p>
-      <span class="loader-sub">Conectando con Google Apps Script</span>
-    </div>
-
-    <!-- IFrame de la App -->
-    <iframe id="op-frame" class="appscript-iframe"
-      src="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
-      allow="geolocation; microphone; camera; clipboard-read; clipboard-write;"
-      sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
-      onload="hideIframeLoader('iframe-loader')">
-    </iframe>
-
-    <!-- Aviso de Soporte / Acceso Workspace -->
-    <div class="iframe-footer-notice">
-      <span>¿No carga la aplicación por políticas de tu cuenta Google?</span>
-      <a href="https://script.google.com/a/macros/sinba.pe/s/AKfycbyM9CAs9pCkM7ZyAD83p1r2WjWHfQ9AxZweqpP_xSJXLfnrZStBPode88MS2CbxMtLO/exec"
-        target="_blank" rel="noopener noreferrer">
-        Haz clic aquí para abrirla directamente en una pestaña de Google Workspace ↗
-      </a>
-    </div>
+    <p class="tools-external-note">
+      Estas herramientas viven en Google Apps Script y, por políticas de seguridad de Google, se abren en una pestaña
+      nueva de tu cuenta Workspace de Sinba.
+    </p>
   </main>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/sinba_logo.png" alt="Sinba" class="footer-logo-img">
+        <span class="footer-motto">#HacemosUnMundoSinBasura</span>
+      </div>
+      <div class="footer-info">
+        <p>© 2026 Sinba Perú · Portal Interno de Operaciones y Logística Sostenible</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
